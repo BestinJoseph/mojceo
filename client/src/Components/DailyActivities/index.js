@@ -12,14 +12,13 @@ import classNames from 'classnames'
 
 const DailyActivities = () => {
     const classes = useStyles()
-    const { activities, auth } = useSelector( state => state )
+    const { activities: {activities}, auth } = useSelector( state => state )
     const [data, setData] = useState([])
     const navigate = useNavigate()
 
     useEffect(()=>{
-        
-        activities.activities.length >= 1 && auth.user.firstName && setData( prev => {
-            return activities.activities.filter( act => act.fullName.toLowerCase().trim() === auth.user.firstName.toLowerCase() )
+        activities && activities.length >= 1 && auth.user.firstName && setData( prev => {
+            return activities.filter( act => act.fullName.toLowerCase().trim() === auth.user.firstName.toLowerCase() )
         })
     },[setData, activities, auth])
 

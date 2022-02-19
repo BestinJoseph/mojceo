@@ -7,10 +7,9 @@ const initialState = {
 export default (state = initialState, actions) => {
     switch (actions.type) {
         case GET_ACTIVITIES:
-            console.log(state)
             return { ...state, activities: actions.payload }
         case CREATE_ACTIVITY:
-            return [ actions.payload, ...state]
+            return {...state, activities: [actions.payload, ...state.activities]}
         case PUT_ACTIVITY:
             return { ...state, activities: state.activities.map( acti => acti._id === actions.payload.track._id ? actions.payload.track : acti)}
         default:
