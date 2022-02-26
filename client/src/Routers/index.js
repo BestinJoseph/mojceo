@@ -15,9 +15,9 @@ const Routers = () => {
         <Router>
             <Routes>
                 <Route exact path="/signin" element={<PublicRoute><SignIn /></PublicRoute>} />
-                <Route exact path="/create" element={<PrivateRoute><CreateDailyActivitie /></PrivateRoute>} />
-                <Route exact path="/edit/:id" element={<PrivateRoute><CreateDailyActivitie /></PrivateRoute>} />
-                <Route exact path="/:_id" element={<PrivateRoute><DailyActivityOne /></PrivateRoute>} />
+                <Route path="/create" element={<PrivateRoute><CreateDailyActivitie /></PrivateRoute>} />
+                <Route path="/:_id" element={<PrivateRoute><DailyActivityOne /></PrivateRoute>} exact />
+                <Route path="/edit/:id" element={<PrivateRoute><CreateDailyActivitie /></PrivateRoute>} exact />
                 <Route path="/" element={<PrivateRoute><DailyActivities /></PrivateRoute>} exact />
                 <Route path='*' element={<NotFound />} />
             </Routes>

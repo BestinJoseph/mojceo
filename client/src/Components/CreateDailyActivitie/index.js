@@ -30,6 +30,7 @@ const CreateDailyActivitie = () => {
                 setAvailability( dateIndex === -1 ? true : false )
             } else {
                 const activity = activities.activities.filter( acts => acts._id === id.id)[0]
+                
                 initialValues.current = {project: activity.project, activities: activity.activities}
                 setAvailability( true )
             }
@@ -81,7 +82,7 @@ const CreateDailyActivitie = () => {
                                     <Button variant="contained" color="success" size="large" type="submit">{ _.isEmpty(id) ? 'Submit' : 'Update' }</Button>
                                 </Form>
                             </Formik>
-                            :
+                        :
                             <Box>
                                 <Typography variant="h6">You already created today's activities Log</Typography>
                             </Box>

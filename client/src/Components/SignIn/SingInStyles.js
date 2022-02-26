@@ -2,7 +2,7 @@ import { makeStyles } from "@mui/styles";
 
 export default makeStyles((theme)=>({
     signin: {
-        width: '100vw',
+        // width: 500,
         height: '100vh',
         display: 'flex',
         justifyContent: 'center',
@@ -22,10 +22,12 @@ export default makeStyles((theme)=>({
             },
 
             '& .auth_form_container': {
-                width: '18rem',
+                // border: '1px solid blue',
+                width: '80vw',
                 display: 'flex',
                 displayDirection: 'row',
                 marginBottom: '2rem',
+                
             }
         }
     }

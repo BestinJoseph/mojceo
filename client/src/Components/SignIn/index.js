@@ -25,8 +25,8 @@ const SignIn = () => {
                 <Box className={classNames('auth_form_container')}>
                     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                         <Form autoComplete='off'>
-                            <Box sx={{mb:2}}>
-                                <Field name="username" type="text" as={TextField} fullWidth/>
+                            <Box sx={{mb:2, }}>
+                                <Field name="username" type="text" as={TextField} fullWidth />
                             </Box>
                             <Box sx={{mb:3}}>
                                 <Field name="password" type="password" as={TextField} fullWidth/>
