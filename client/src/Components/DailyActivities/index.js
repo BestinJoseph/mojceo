@@ -6,6 +6,7 @@ import moment from 'moment'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import EditIcon from '@mui/icons-material/Edit'
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
 
 import useStyles from './DailyActivitiesStyles'
 import classNames from 'classnames'
@@ -30,13 +31,22 @@ const DailyActivities = () => {
         navigate(`/edit/${id}`)
     }
 
+    const handleBackBtn = () => {
+        navigate('/')
+    }
+
     return (
-        <Box className={classes.dailyactivities}>
-            <Box className={classNames('nav_header')}>
-                <Typography variant='h6'>Daily Tracker Log</Typography>
-                <AddIcon sx={{size: 'large', cursor: 'pointer', width: 30, height: 30, ml: 2}} onClick={handleHome}/>
+        <Box className={classes.dailyactivities} sx={{position: 'relative', maxWidth:500,}}>
+            <Box sx={{position: 'fixed', top:0, display:'block', width:'inherit', }}>
+                <Box className={classNames('nav_header')}>
+                    <Box sx={{display:'flex', alignItems:'center',  }}>
+                        <ArrowBackIosNewIcon sx={{pr:1, cursor:'pointer', }} onClick={()=> handleBackBtn() } />
+                        <Typography variant="body1" sx={{fontWeight:'bold' }}>Daily Tracker Log</Typography>
+                    </Box>
+                    
+                </Box>
             </Box>
-            <Box className={classNames('dailyactivities_list_container')}>
+            <Box className={classNames('dailyactivities_list_container')} sx={{mt:8,}}>
                 <ul className={classNames('daily_lists')}>
                     {
                         data && data.map( (da, i) => (
@@ -51,6 +61,9 @@ const DailyActivities = () => {
                         ))
                     }
                 </ul>
+            </Box>
+            <Box sx={{position:'fixed', bottom:25, width:'inherit', textAlign:'right', right:15}}>
+                <AddIcon onClick={handleHome} sx={{fontSize:'40px', cursor: 'pointer', p:.5, background:'blueviolet', color:'white', borderRadius:10}}/>
             </Box>
         </Box>
     )

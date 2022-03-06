@@ -9,11 +9,11 @@ export default makeStyles((theme) => ({
         // border: '1px solid orange',
 
         '& .nav_header': {
-            background: '#2f0670',
+            // background: '#8A2BE2',
             display: 'flex',
             justifyContent: 'space-between',
-            padding: 20,
-            color: 'white',
+            padding: 15,
+            color: '#8A2BE2',
         },
 
         '& .dailyactivities_list_container': {
@@ -37,7 +37,7 @@ export default makeStyles((theme) => ({
                     '& .daily_lists_item_link': {
                         textDecoration: 'none',
                         color: 'black',
-                        fontWeight: 600,
+                        fontWeight:'bold',
                     },
 
                     // '&:hover': {

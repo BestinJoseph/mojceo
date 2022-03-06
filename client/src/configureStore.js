@@ -1,17 +1,18 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { applyMiddleware, createStore } from "redux"
 import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/es/storage'
+// import storage from 'redux-persist/es/storage'
 import thunk from "redux-thunk"
+import storage from 'redux-persist/lib/storage'
 
-import rootReducer from './RootReducers'
+import rootReducers from './RootReducers'
 
-const primary = {
-    key:'main-root',
+const persistConfig = {
+    key:'root',
     storage
 }
 
-const persistedReducer = persistReducer(primary, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducers)
 
 export const store = createStore(persistedReducer, applyMiddleware(thunk))
 

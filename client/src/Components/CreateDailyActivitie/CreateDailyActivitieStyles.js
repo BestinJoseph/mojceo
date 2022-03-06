@@ -5,9 +5,9 @@ export default makeStyles((theme) => ({
         margin: '0 auto',
 
         '& .nav_header': {
-            background: '#2f0670',
+            background: '#8A2BE2',
             display: 'flex',
-            padding: 20,
+            padding: 10,
             color: 'white',
         },
     },

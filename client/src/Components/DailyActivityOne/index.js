@@ -18,7 +18,7 @@ const DailyActivityOne = () => {
     useEffect(() => {
         const getOneTrack = () => {
             if(_id === 'undefined' ) {
-                return navigate('/')
+                return navigate('/dailytracker')
             }
             const dat = activities.filter( act => act._id === _id)[0]
             setData(dat)
@@ -28,7 +28,7 @@ const DailyActivityOne = () => {
     },[_id, activities, navigate])
 
     const handleBack = () => {
-        navigate('/')
+        navigate('/dailytracker')
     }
 
     return (

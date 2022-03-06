@@ -35,7 +35,7 @@ const Header = (props) => {
     return (
         <Box>
             <HideOnScroll {...props}>
-                <AppBar sx={{background: '#191919', boxShadow: 'none'}}>
+                <AppBar sx={{background: '#8A2BE2', boxShadow: 'none'}}>
                     <Box sx={{textAlign: 'right', background: 'white'}}>
                         <Container>
                             <Typography variant='h6' color="secondary">contact us</Typography>

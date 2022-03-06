@@ -32,7 +32,7 @@ const SignIn = () => {
                                 <Field name="password" type="password" as={TextField} fullWidth/>
                             </Box>
                             <Box>
-                                <Button type="submit" variant="contained" color="success" size="large">Sign In</Button>
+                                <Button type="submit" variant="contained" color="success" size="medium">Sign In</Button>
                             </Box>
                         </Form>
                     </Formik>

@@ -47,7 +47,7 @@ const CreateDailyActivitie = () => {
             Values.number = 205
             if( availability ) {
                 dispatch(postActivity(Values))
-                navigate('/')
+                navigate('/dailytracker')
                 actions.resetForm()
             }
         } else {
@@ -58,7 +58,7 @@ const CreateDailyActivitie = () => {
     }
 
     const handleBack = () => {
-        navigate('/')
+        navigate('/dailytracker')
     }
 
     return (
