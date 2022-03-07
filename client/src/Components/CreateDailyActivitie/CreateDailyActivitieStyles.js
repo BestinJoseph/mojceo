@@ -5,10 +5,10 @@ export default makeStyles((theme) => ({
         margin: '0 auto',
 
         '& .nav_header': {
-            background: '#8A2BE2',
+            // background: '#8A2BE2',
             display: 'flex',
-            padding: 10,
-            color: 'white',
+            padding: '25px 10px',
+            color: '#8A2BE2',
         },
     },
     textarea: {

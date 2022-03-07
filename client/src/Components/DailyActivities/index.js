@@ -40,7 +40,7 @@ const DailyActivities = () => {
             <Box sx={{position: 'fixed', top:0, display:'block', width:'inherit', }}>
                 <Box className={classNames('nav_header')}>
                     <Box sx={{display:'flex', alignItems:'center',  }}>
-                        <ArrowBackIosNewIcon sx={{pr:1, cursor:'pointer', }} onClick={()=> handleBackBtn() } />
+                        <ArrowBackIosNewIcon sx={{mr:1, cursor:'pointer', }} onClick={()=> handleBackBtn() } />
                         <Typography variant="body1" sx={{fontWeight:'bold' }}>Daily Tracker Log</Typography>
                     </Box>
                     
@@ -62,8 +62,10 @@ const DailyActivities = () => {
                     }
                 </ul>
             </Box>
-            <Box sx={{position:'fixed', bottom:25, width:'inherit', textAlign:'right', right:15}}>
-                <AddIcon onClick={handleHome} sx={{fontSize:'40px', cursor: 'pointer', p:.5, background:'blueviolet', color:'white', borderRadius:10}}/>
+            <Box sx={{position:'fixed', bottom:25, width:'inherit', right:25 }}>
+                <Box sx={{textAlign:'right', }}>
+                    <AddIcon onClick={handleHome} sx={{fontSize:'40px', cursor: 'pointer', p:.5, background:'blueviolet', color:'white', borderRadius:10}}/>
+                </Box>
             </Box>
         </Box>
     )

@@ -14,8 +14,8 @@ const Profile = () => {
     
     return (
         <Box>
-            <Box sx={{display:'flex', p:2}}>
-                <ArrowBackIcon onClick={handleBack} sx={{mr:2, cursor:'pointer', }} />
+            <Box sx={{display:'flex', p:'25px 10px', color:'blueviolet'}}>
+                <ArrowBackIcon onClick={handleBack} sx={{mr:1, cursor:'pointer', }} />
                 <Typography variant="body1" sx={{fontWeight:'bold', }}>You Profile</Typography>
             </Box>
             <Box sx={{px:2}}>

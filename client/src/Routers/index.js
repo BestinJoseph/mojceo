@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 // import Layout from '../Components/Layout'
 
 import {NotFound} from '../Components'
+import AdminHome from '../Components/Admin/AdminHome'
 import CreateDailyActivitie from '../Components/CreateDailyActivitie'
 import DailyActivities from '../Components/DailyActivities'
 import DailyActivityOne from '../Components/DailyActivityOne'
@@ -13,12 +14,29 @@ import Profile from '../Components/Profile'
 import SignIn from '../Components/SignIn'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
+//Admin Components
+import AdminRoute from './AdminRoute'
+import AdminProjects from '../Components/Admin/AdminProjects'
+import AdminTests from '../Components/Admin/AdminTests'
+import AdminTrackers from '../Components/Admin/AdminTrackers'
+import AdminEmployees from '../Components/Admin/AdminEmployees'
+import AdminSingleEmployee from '../Components/Admin/AdminSingleEmployee'
+import AdminEmployeeHome from '../Components/Admin/AdminEmployeeHome'
 
 const Routers = () => {
     return (
-        <Box sx={{m:'auto', maxWidth: 500,}}>
+        <Box sx={{m:'auto',}}>
             <Router>
                 <Routes>
+                    <Route exact path="/admin" element={<AdminRoute><AdminHome /></AdminRoute>}>
+                        <Route exact path="employees" element={<AdminEmployeeHome />}>
+                            <Route exact path=":employeeId" element={<AdminSingleEmployee />} />
+                            <Route exact index element={<AdminEmployees />} />
+                        </Route>
+                        <Route exact path="projects" element={<AdminProjects />} />
+                        <Route exact path="tests" element={<AdminTests />} />
+                        <Route exact path="trackers" element={<AdminTrackers />} />
+                    </Route>
                     <Route exact path="/signin" element={<PublicRoute><SignIn /></PublicRoute>} />
                     <Route path="/create" element={<PrivateRoute><CreateDailyActivitie /></PrivateRoute>} />
                     <Route path="/:_id" element={<PrivateRoute><DailyActivityOne /></PrivateRoute>} exact />

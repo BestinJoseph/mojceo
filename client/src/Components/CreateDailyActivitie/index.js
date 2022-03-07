@@ -65,8 +65,10 @@ const CreateDailyActivitie = () => {
         <Box className={classes.dailyactivities}>
             <Box>
                 <Box className={classNames('nav_header')}>
-                    <ArrowBackIcon sx={{ mr: 2, cursor: 'pointer', width: 30, height: 30, }} onClick={handleBack}/>
-                    <Typography variant='h6'>Daily Tracker Log</Typography>
+                    <Box sx={{display:'flex', alignItems:'center',  }}>
+                        <ArrowBackIcon sx={{ mr: 2, cursor: 'pointer', }} onClick={handleBack}/>
+                        <Typography variant='body' sx={{fontWeight:'bold' }}>Daily Tracker Log</Typography>
+                    </Box>
                 </Box>
                 <Box sx={{px:'10%', mt:4}}>
                     {

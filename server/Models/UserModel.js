@@ -17,6 +17,12 @@ const userSchema = mongoose.Schema({
         type: String,
         default: ''
     },
+    authorization: {
+        type: String,
+        default: 'employee',
+        enum: ['employee', 'supervisor', 'incharge', 'manager', 'general', 'admin'],
+        require: true
+    },
     authStrategy: {
         type: String,
         default: 'local'

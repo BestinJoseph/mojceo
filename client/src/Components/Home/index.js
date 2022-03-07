@@ -1,8 +1,8 @@
 import React from 'react'
-import { Box, Grid, Typography } from '@mui/material'
+import { Box, Button, Grid, Typography } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import LogoutIcon from '@mui/icons-material/Logout'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import FaceIcon from '@mui/icons-material/Face';
 
 import { setUserLogout } from '../../Actions/AuthAction'
@@ -10,6 +10,7 @@ import { setUserLogout } from '../../Actions/AuthAction'
 const Home = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    // const { user } = useSelector( state => state.auth )
 
     const handleLogOut = () => {
         dispatch(setUserLogout())
@@ -19,8 +20,12 @@ const Home = () => {
         navigate('/profile')
     }
 
+    const handleAdmin = () => {
+        navigate('/admin')
+    }
+
     return (
-        <Box sx={{px:3, height:'100vh', display:'flex', flexDirection:'column' ,justifyContent:'center', position:'relative'}}>
+        <Box sx={{px:3, height:'100vh', display:'flex', flexDirection:'column' ,justifyContent:'center', position:'relative', maxWidth:500}}>
             <Box sx={{position:'absolute', right:20, top: 20}}>
                 <FaceIcon sx={{mr:2}} onClick={handleProfile} />
                 <LogoutIcon onClick={handleLogOut} />
@@ -43,6 +48,7 @@ const Home = () => {
                     </Link>
                 </Grid>
             </Grid>
+            <Button onClick={handleAdmin}>Admin</Button>
         </Box>
     )
 }

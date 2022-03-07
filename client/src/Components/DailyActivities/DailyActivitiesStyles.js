@@ -12,7 +12,7 @@ export default makeStyles((theme) => ({
             // background: '#8A2BE2',
             display: 'flex',
             justifyContent: 'space-between',
-            padding: 15,
+            padding: '25px 10px',
             color: '#8A2BE2',
         },
 
