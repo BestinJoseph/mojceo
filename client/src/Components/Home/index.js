@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Grid, Typography } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import LogoutIcon from '@mui/icons-material/Logout'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import FaceIcon from '@mui/icons-material/Face';
 
 import { setUserLogout } from '../../Actions/AuthAction'

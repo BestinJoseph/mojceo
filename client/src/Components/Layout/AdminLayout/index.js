@@ -1,22 +1,27 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { Box, Breadcrumbs, Button, Grid, MenuItem, MenuList, Typography } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import _ from 'lodash'
 
 const AdminLayout = ({children}) => {
     const [page, setPage] = useState('')
     const navigate = useNavigate()
+    const {pathname} = useLocation()
     
     useEffect(() => {
         const navigator = () => {
-            if(page) {
-                navigate(`/admin/${page}`)
+            if(pathname) {
+                navigate(`${pathname}`)
             } else {
-                navigate(`/admin`)
+                navigate(`${pathname}`)
             }
+            localStorage.setItem('url', pathname)
         }
 
         navigator()
-    },[page, navigate])
+        setPage(localStorage.getItem('url').split('/')[2] || 'admin')
+    },[page])
 
     return (
         <Box>
@@ -30,16 +35,16 @@ const AdminLayout = ({children}) => {
                             <Box>
                                 <Typography sx={{pl:2.2, py:2}}>Admin Page</Typography>
                                 <MenuList>
-                                    <MenuItem sx={ page === 'employees' ? {borderRight: '5px solid blueviolet', background:'#F5F5F5'} : {borderRight:'none'} } onClick={() => setPage('employees')}>
+                                    <MenuItem sx={ page === 'employees' ? {borderRight: '5px solid blueviolet', background:'#F5F5F5'} : {borderRight:'none'} } onClick={() => {setPage('employees'); navigate(`/admin/employees`)}}>
                                         <Typography variant='body1' >Employees</Typography>
                                     </MenuItem>
-                                    <MenuItem sx={page === 'projects' ? {borderRight: '5px solid blueviolet', background:'#F5F5F5'} : {borderRight:'none'}} onClick={() => setPage('projects')}>
+                                    <MenuItem sx={page === 'projects' ? {borderRight: '5px solid blueviolet', background:'#F5F5F5'} : {borderRight:'none'}} onClick={() => {setPage('projects'); navigate(`/admin/projects`)}}>
                                         <Typography variant='body1' >Projects</Typography>
                                     </MenuItem>
-                                    <MenuItem sx={page === 'tests' ? {borderRight: '5px solid blueviolet', background:'#F5F5F5'} : {borderRight:'none'}} onClick={() => setPage('tests')}>
+                                    <MenuItem sx={page === 'tests' ? {borderRight: '5px solid blueviolet', background:'#F5F5F5'} : {borderRight:'none'}} onClick={() => {setPage('tests'); navigate(`/admin/tests`)}}>
                                         <Typography variant='body1'>Tests</Typography>
                                     </MenuItem>
-                                    <MenuItem sx={page === 'trackers' ? {borderRight: '5px solid blueviolet', background:'#F5F5F5'} : {borderRight:'none'}} onClick={() => setPage('trackers')}>
+                                    <MenuItem sx={page === 'trackers' ? {borderRight: '5px solid blueviolet', background:'#F5F5F5'} : {borderRight:'none'}} onClick={() => {setPage('trackers'); ; navigate(`/admin/trackers`)}}>
                                         <Typography variant='body1'>Daily Trackers</Typography>
                                     </MenuItem>
                                 </MenuList>

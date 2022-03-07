@@ -7,7 +7,7 @@ const AdminEmployees = () => {
     const navigate = useNavigate()
 
     const handleView = () => {
-        navigate(`/admin/tests`)
+        navigate(`/admin/employees/${1234}`)
     }
 
     return (

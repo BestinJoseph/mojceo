@@ -29,14 +29,15 @@ const Routers = () => {
             <Router>
                 <Routes>
                     <Route exact path="/admin" element={<AdminRoute><AdminHome /></AdminRoute>}>
-                        <Route exact path="employees" element={<AdminEmployeeHome />}>
-                            <Route exact path=":employeeId" element={<AdminSingleEmployee />} />
-                            <Route exact index element={<AdminEmployees />} />
-                        </Route>
+                        <Route exact path="employees" element={<AdminEmployees />} />
+                        <Route exact path="employees/:id" element={<AdminSingleEmployee />} />
+                        <Route exact path="one" element={<AdminSingleEmployee />} />
                         <Route exact path="projects" element={<AdminProjects />} />
-                        <Route exact path="tests" element={<AdminTests />} />
+                        
                         <Route exact path="trackers" element={<AdminTrackers />} />
+                        <Route exact index element={<AdminEmployees />} />
                     </Route>
+                    <Route exact path="/admin/tests" element={<AdminRoute><AdminTests /></AdminRoute>} />
                     <Route exact path="/signin" element={<PublicRoute><SignIn /></PublicRoute>} />
                     <Route path="/create" element={<PrivateRoute><CreateDailyActivitie /></PrivateRoute>} />
                     <Route path="/:_id" element={<PrivateRoute><DailyActivityOne /></PrivateRoute>} exact />
