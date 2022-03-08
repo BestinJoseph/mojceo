@@ -1,7 +1,9 @@
 import React from 'react'
 import { Box, Typography, Grid, Card, CardContent, CardActions, Button } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 const AdminTests = () => {
+    const navigate = useNavigate()
     const tests = [{name:'Seieve Analysis', standard:'ASTM 56 / 56 C'}, {name:'FDT Nuclear', standard:'ASTM 156 / 156 C'}]
 
     return (
@@ -20,7 +22,7 @@ const AdminTests = () => {
                                     <Typography variant='h5' sx={{fontWeight:'bold', }}>{test.name}</Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button >View</Button>
+                                    <Button onClick={() => navigate(`/admin/tests/${12345}`)}>View</Button>
                                 </CardActions>
                             </Card>
                         </Grid>

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { Box, Breadcrumbs, Button, Grid, MenuItem, MenuList, Typography } from '@mui/material'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import _ from 'lodash'
 
 const AdminLayout = ({children}) => {
@@ -58,7 +58,7 @@ const AdminLayout = ({children}) => {
                     </Grid>
                     <Grid item md={10} sx={{pt:3}}>
                         <Breadcrumbs sx={{ml:3}}>
-                            <Button onClick={() => setPage('')} size="small">Home</Button>
+                            <Button onClick={() => navigate('/admin')} size="small" sx={{fontSize:12, fontWeight:'bold', color:'bluevoilet'}}>Home</Button>
                             <Typography sx={{ml:1.5, textTransform:'uppercase'}}>{page}</Typography>
                         </Breadcrumbs>
                         <Box sx={{mt:2, pl:4}}>

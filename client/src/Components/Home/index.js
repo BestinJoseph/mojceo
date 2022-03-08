@@ -48,7 +48,9 @@ const Home = () => {
                     </Link>
                 </Grid>
             </Grid>
-            <Button onClick={handleAdmin}>Admin</Button>
+            <Box sx={{mt:4, textAlign:'center', }}>
+                <Button onClick={handleAdmin} variant="outlined">Admin</Button>
+            </Box>
         </Box>
     )
 }

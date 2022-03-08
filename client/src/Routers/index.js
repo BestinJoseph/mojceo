@@ -17,11 +17,15 @@ import PublicRoute from './PublicRoute'
 //Admin Components
 import AdminRoute from './AdminRoute'
 import AdminProjects from '../Components/Admin/AdminProjects'
-import AdminTests from '../Components/Admin/AdminTests'
 import AdminTrackers from '../Components/Admin/AdminTrackers'
 import AdminEmployees from '../Components/Admin/AdminEmployees'
 import AdminSingleEmployee from '../Components/Admin/AdminSingleEmployee'
 import AdminEmployeeHome from '../Components/Admin/AdminEmployeeHome'
+import AdminProjectOutlet from '../Components/Admin/AdminProjectOutlet'
+import AdminSingleProject from '../Components/Admin/AdminSingleProject'
+import AdminTestOutlet from '../Components/Admin/AdminTestOutlet'
+import AdminTests from '../Components/Admin/AdminTests'
+import AdminSingleTest from '../Components/Admin/AdminSingleTest'
 
 const Routers = () => {
     return (
@@ -29,15 +33,21 @@ const Routers = () => {
             <Router>
                 <Routes>
                     <Route exact path="/admin" element={<AdminRoute><AdminHome /></AdminRoute>}>
-                        <Route exact path="employees" element={<AdminEmployees />} />
-                        <Route exact path="employees/:id" element={<AdminSingleEmployee />} />
-                        <Route exact path="one" element={<AdminSingleEmployee />} />
-                        <Route exact path="projects" element={<AdminProjects />} />
-                        
+                        <Route exact path="employees" element={<AdminEmployeeHome />}>
+                            <Route exact path=":employeeId" element={<AdminSingleEmployee />} />
+                            <Route exact index element={<AdminEmployees />} />
+                        </Route>
+                        <Route exact path="projects" element={<AdminProjectOutlet />}>
+                            <Route exact path=":projectId" element={<AdminSingleProject />} />
+                            <Route exact index element={<AdminProjects />} />
+                        </Route>
                         <Route exact path="trackers" element={<AdminTrackers />} />
                         <Route exact index element={<AdminEmployees />} />
+                        <Route exact path="tests" element={<AdminTestOutlet />}>
+                            <Route exact path=":testId" element={<AdminSingleTest />} />
+                            <Route exact index element={<AdminTests />} />
+                        </Route>
                     </Route>
-                    <Route exact path="/admin/tests" element={<AdminRoute><AdminTests /></AdminRoute>} />
                     <Route exact path="/signin" element={<PublicRoute><SignIn /></PublicRoute>} />
                     <Route path="/create" element={<PrivateRoute><CreateDailyActivitie /></PrivateRoute>} />
                     <Route path="/:_id" element={<PrivateRoute><DailyActivityOne /></PrivateRoute>} exact />

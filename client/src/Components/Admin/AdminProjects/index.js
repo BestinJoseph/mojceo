@@ -1,8 +1,11 @@
 import { Box, Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/material'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const AdminProjects = () => {
+    const navigate = useNavigate()
     const projects = [{name:'KAIA Extension', company:'Saudi Binladin Group'}, {name:'Aura Bridge', company:'El Seif'}]
+
     return (
         <Box>
             <Box>
@@ -19,7 +22,7 @@ const AdminProjects = () => {
                                     <Typography variant='h5' sx={{fontWeight:'bold', color:'blueviolet',}}>{proj.name}</Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button >View</Button>
+                                    <Button onClick={() => navigate(`/admin/projects/${1234}`)}>View</Button>
                                 </CardActions>
                             </Card>
                         </Grid>
