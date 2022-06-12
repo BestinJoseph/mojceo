@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Breadcrumbs, Button, Grid, MenuItem, MenuList, Typography } from '@mui/material'
 import { useLocation, useNavigate } from 'react-router-dom'
-import _ from 'lodash'
 
 const AdminLayout = ({children}) => {
     const [page, setPage] = useState('')

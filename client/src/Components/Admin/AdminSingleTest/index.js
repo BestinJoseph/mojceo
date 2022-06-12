@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Grid, Typography } from '@mui/material'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 
 import AdminTestInformation from './AdminTestInformation'
 import AdminTestProducre from './AdminTestProducre'
