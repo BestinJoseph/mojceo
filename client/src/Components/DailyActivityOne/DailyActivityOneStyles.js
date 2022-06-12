@@ -3,19 +3,24 @@ import { makeStyles } from "@mui/styles";
 export default makeStyles((theme)=>({
     dailyactivityone: {
         margin: '0 auto',
+        maxWidth: 500,
+        minHeight: '99vh',
+        border: '1px solid blue',
 
         '& .nav_header': {
-            background: '#8A2BE2',
             display: 'flex',
+            alignItems: 'center',
             padding: 10,
-            color: 'white',
+            color: '#8A2BE2',
+            height: 50,
         },
 
         '& .activity_container': {
             padding: 20,
+            marginTop: 10,
 
             '& .activity_lists_container': {
-                
+                marginTop: 30,
 
                 '& .activities_lists': {
                     listStyle: 'none',
@@ -28,7 +33,11 @@ export default makeStyles((theme)=>({
                         padding: '15px 15px',
                         marginBottom: '7px',
                         // borderRadius: 8,
-                        background: '#F7F9FE'
+                        background: '#F7F9FE',
+
+                        '&:last-child': {
+                            borderBottom: 'none',
+                        }
                     }
                 }
             }

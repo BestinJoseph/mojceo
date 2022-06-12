@@ -3,6 +3,9 @@ import { makeStyles } from "@mui/styles";
 export default makeStyles((theme) => ({
     dailyactivities: {
         margin: '0 auto',
+        maxWidth: 500,
+        minHeight: '99vh',
+        border: '1px solid #767676',
 
         '& .nav_header': {
             // background: '#8A2BE2',

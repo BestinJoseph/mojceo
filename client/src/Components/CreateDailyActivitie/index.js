@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Box, Button, TextareaAutosize, TextField, Typography } from '@mui/material'
+import { Box, Button, Grid, TextareaAutosize, TextField, Typography } from '@mui/material'
 import { Formik, Form, Field, FieldArray } from 'formik'
 import { useNavigate, useParams } from 'react-router-dom'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
@@ -80,20 +80,30 @@ const CreateDailyActivitie = () => {
                                         <Field name="project" type="text" label="Project Name" as={TextField} fullWidth/>
                                     </Box>
                                     <Box sx={{mb: 2}}>
-                                        <Typography variant='h6' sx={{mb:1}}>My Activities</Typography>
+                                        
                                         <FieldArray name="activities" render={ 
                                             arrayHelper => (
                                                 <Box>
+                                                    <Box sx={{mb: 1, display: 'flex'}}>
+                                                        <Typography variant='h6'>My Activities</Typography>
+                                                        <Button type="button" onClick={ () => arrayHelper.push('')}>Add</Button>
+                                                    </Box>
                                                     {
                                                         values.activities && values.activities.length > 1 ? (
                                                             values.activities.map( (actvity, ind) => (
-                                                                <Field key={ind} name={`activities.${ind}`} as={TextField}/>
+                                                                <Grid key={ind} container>
+                                                                    <Grid item xs={10}>
+                                                                        <Field name={`activities.${ind}`} as={TextField}/>
+                                                                    </Grid>
+                                                                    <Grid item xs={2}>
+                                                                        
+                                                                    </Grid>
+                                                                </Grid>
                                                             ))
                                                         ) : (
                                                             <Field name={`activities.${0}`} as={TextField} type="text"/>
                                                         )
                                                     }
-                                                    <Button type="button" onClick={ () => arrayHelper.push('')}>Add</Button>
                                                 </Box>
                                             )
                                         } />

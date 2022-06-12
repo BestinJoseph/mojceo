@@ -25,7 +25,7 @@ const Home = () => {
     }
 
     return (
-        <Box sx={{m:'auto', px:3, height:'100vh', display:'flex', flexDirection:'column' ,justifyContent:'center', position:'relative', maxWidth:500, border: '1px solid blue'}}>
+        <Box sx={{m:'auto', px:3, minHeight:'99vh', display:'flex', flexDirection:'column' ,justifyContent:'center', position:'relative', maxWidth:500, border: '1px solid blue'}}>
             <Box sx={{position:'absolute', right:20, top: 20, display:'flex'}}>
                 <FaceIcon sx={{mr:2}} onClick={handleProfile} />
                 <LogoutIcon onClick={handleLogOut} />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Typography } from '@mui/material'
+import { Box, Paper, Typography } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { useNavigate, useParams } from 'react-router-dom'
 import moment from 'moment'
@@ -31,26 +31,31 @@ const DailyActivityOne = () => {
         navigate('/dailytracker')
     }
 
+    console.log(data)
+
     return (
         <Box className={classes.dailyactivityone}>
             <Box className={classNames('nav_header')}>
                 <ArrowBackIcon sx={{size: 'large', cursor: 'pointer', width: 30, height: 30, mr: 2}} onClick={handleBack}/>
-                <Typography variant='h6'>{ data && `${data.fullName}'s Daily Activities` }</Typography>
+                <Typography variant='body1' sx={{fontWeight: 600}}>{ data && `${data.fullName}'s Daily Activities` }</Typography>
             </Box>
             <Box className={classNames('activity_container')}>
                 <Typography variant="body1" sx={{mb:1}}>Emp. ID: {data && data.number}</Typography>
                 <Typography variant="body1">Date: {data && moment(data.createdAt).format("Do MMM, YYYY")}</Typography>
                 <Box sx={{ mt:3 }} className={classNames('activity_lists_container')}>
                     <Typography variant="h6" sx={{pb:3}}>My Activities:</Typography>
-                    <Typography variant="body1">Project: {data ? data.project : null}</Typography>
-                    <ul className={classNames('activities_lists')}>
-                        {
-                            data && data.activities.split('\n').map( (activity, i) => (
-                                <li key={i} className={classNames('list_item')}><Typography variant="body1">{activity}</Typography></li>
-                            ))
-                        }
-                    </ul>
+                    <Paper>
+                        <Typography variant="body1" sx={{pt: 2, pl: 2}}>Project: <Box component="span" sx={{fontWeight: 'bold'}}>{data ? data.project : null}</Box></Typography>
+                        <ul className={classNames('activities_lists')}>
+                            {
+                                data && data.activities.map( (activity, i) => (
+                                    <li key={i} className={classNames('list_item')}><Typography variant="body1">{activity}</Typography></li>
+                                ))
+                            }
+                        </ul>
+                    </Paper>
                 </Box>
+
             </Box>
         </Box>
     )

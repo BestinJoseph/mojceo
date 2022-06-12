@@ -5,8 +5,9 @@ export default makeStyles((theme) => ({
         // textAlign: 'center',
         // background: 'blue',
         margin: '0 auto',
-        // height: 500,
-        // border: '1px solid orange',
+        minHeight: '99vh',
+        border: '1px solid blue',
+        maxWidth: 500,
 
         '& .nav_header': {
             // background: '#8A2BE2',

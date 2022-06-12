@@ -16,7 +16,7 @@ const dailyTrackerSchema = mongoose.Schema({
         require: true,
     },
     activities: {
-        type: String,
+        type: Array,
         require: true
     },
     number: {

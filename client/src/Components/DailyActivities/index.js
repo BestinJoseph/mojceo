@@ -55,7 +55,7 @@ const DailyActivities = () => {
                                     <Typography variant="body1" >{ moment(da.createdAt).format("Do MMM, YYYY")}, activities</Typography>
                                 </Link>
                                 {
-                                    moment(da.createdAt).format('DD-MM-yyyy') === moment(Date.now()).format('DD-MM-yyyy') ? <EditIcon onClick={ () => handleEdit(da._id) } /> : null
+                                    moment(da.createdAt).format('DD-MM-yyyy') === moment(Date.now()).format('DD-MM-yyyy') ? <EditIcon onClick={() => handleEdit(da._id)} sx={{cursor: 'pointer'}} /> : null
                                 }
                             </li>
                         ))

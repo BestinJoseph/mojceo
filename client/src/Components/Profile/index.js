@@ -13,7 +13,7 @@ const Profile = () => {
     }
     
     return (
-        <Box>
+        <Box sx={{ m: 'auto', maxWidth: 500, border: '1px solid blue', minHeight: '99vh' }}>
             <Box sx={{display:'flex', p:'25px 10px', color:'blueviolet'}}>
                 <ArrowBackIcon onClick={handleBack} sx={{mr:1, cursor:'pointer', }} />
                 <Typography variant="body1" sx={{fontWeight:'bold', }}>You Profile</Typography>
