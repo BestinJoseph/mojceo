@@ -3,6 +3,7 @@ import { Box, Grid, Typography } from '@mui/material'
 import { useParams } from 'react-router-dom'
 
 import AdminTestInformation from './AdminTestInformation'
+import AdminTestProducre from './AdminTestProducre'
 
 const AdminSingleTest = () => {
 
@@ -14,7 +15,8 @@ const AdminSingleTest = () => {
                     <AdminTestInformation />
                 </Grid>
                 <Grid item md={4}>
-                    <Typography variant="body">Conducted Test</Typography>
+                    <Typography variant="body">Procedure</Typography>
+                    <AdminTestProducre />
                 </Grid>
                 <Grid item md={4}>
                     <Typography variant="body">Seieve Analysis</Typography>

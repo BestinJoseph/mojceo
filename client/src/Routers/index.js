@@ -29,7 +29,7 @@ import AdminSingleTest from '../Components/Admin/AdminSingleTest'
 
 const Routers = () => {
     return (
-        <Box sx={{m:'auto',}}>
+        <Box sx={{m:'auto 0', }}>
             <Router>
                 <Routes>
                     <Route exact path="/admin" element={<AdminRoute><AdminHome /></AdminRoute>}>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Box, Button, TextareaAutosize, TextField, Typography } from '@mui/material'
-import { Formik, Form, Field } from 'formik'
+import { Formik, Form, Field, FieldArray } from 'formik'
 import { useNavigate, useParams } from 'react-router-dom'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import classNames from 'classnames'
@@ -13,7 +13,7 @@ import moment from 'moment'
 
 const CreateDailyActivitie = () => {
     const classes = useStyles()
-    let initialValues = useRef({project: '', activities: ''})
+    let initialValues = useRef({project: '', activities: ['']})
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { activities, auth } = useSelector( state => state )
@@ -74,15 +74,33 @@ const CreateDailyActivitie = () => {
                     {
                         availability ? 
                             <Formik initialValues={initialValues.current} onSubmit={handleOnSubmit}>
-                                <Form>
-                                    <Box sx={{mb: 2}}>
+                                { ({values}) => (
+                                    <Form>
+                                    <Box sx={{mb: 3}}>
                                         <Field name="project" type="text" label="Project Name" as={TextField} fullWidth/>
                                     </Box>
                                     <Box sx={{mb: 2}}>
-                                        <Field name="activities" type="text" placeholder="Todays Activities" as={TextareaAutosize} minRows={6} className={classes.textarea}/>
+                                        <Typography variant='h6' sx={{mb:1}}>My Activities</Typography>
+                                        <FieldArray name="activities" render={ 
+                                            arrayHelper => (
+                                                <Box>
+                                                    {
+                                                        values.activities && values.activities.length > 1 ? (
+                                                            values.activities.map( (actvity, ind) => (
+                                                                <Field key={ind} name={`activities.${ind}`} as={TextField}/>
+                                                            ))
+                                                        ) : (
+                                                            <Field name={`activities.${0}`} as={TextField} type="text"/>
+                                                        )
+                                                    }
+                                                    <Button type="button" onClick={ () => arrayHelper.push('')}>Add</Button>
+                                                </Box>
+                                            )
+                                        } />
                                     </Box>
                                     <Button variant="contained" color="success" size="large" type="submit">{ _.isEmpty(id) ? 'Submit' : 'Update' }</Button>
                                 </Form>
+                                )}
                             </Formik>
                         :
                             <Box>
