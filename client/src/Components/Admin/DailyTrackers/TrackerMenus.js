@@ -3,7 +3,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 
-const AdminTrackers = () => {
+const TrackerMenus = () => {
     const { activities } = useSelector( state => state)
 
     // console.log(activities)
@@ -68,4 +68,4 @@ const AdminTrackers = () => {
     )
 }
 
-export default AdminTrackers
+export default TrackerMenus

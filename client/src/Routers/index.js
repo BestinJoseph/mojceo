@@ -26,6 +26,7 @@ import AdminSingleProject from '../Components/Admin/AdminSingleProject'
 import AdminTestOutlet from '../Components/Admin/AdminTestOutlet'
 import AdminTests from '../Components/Admin/AdminTests'
 import AdminSingleTest from '../Components/Admin/AdminSingleTest'
+import DailyTrackers from '../Pages/Admin/DailyTrackers'
 
 const Routers = () => {
     return (
@@ -41,7 +42,7 @@ const Routers = () => {
                             <Route exact path=":projectId" element={<AdminSingleProject />} />
                             <Route exact index element={<AdminProjects />} />
                         </Route>
-                        <Route exact path="trackers" element={<AdminTrackers />} />
+                        <Route exact path="trackers" element={<DailyTrackers />} />
                         <Route exact index element={<AdminEmployees />} />
                         <Route exact path="tests" element={<AdminTestOutlet />}>
                             <Route exact path=":testId" element={<AdminSingleTest />} />

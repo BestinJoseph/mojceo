@@ -25,7 +25,7 @@ const Home = () => {
     }
 
     return (
-        <Box sx={{m:'auto', px:3, minHeight:'99vh', display:'flex', flexDirection:'column' ,justifyContent:'center', position:'relative', maxWidth:500, border: '1px solid blue'}}>
+        <Box sx={{m:'auto', minHeight:'99vh', display:'flex', flexDirection:'column' ,justifyContent:'center', position:'relative', maxWidth:500, border: '1px solid blue'}}>
             <Box sx={{position:'absolute', right:20, top: 20, display:'flex'}}>
                 <FaceIcon sx={{mr:2}} onClick={handleProfile} />
                 <LogoutIcon onClick={handleLogOut} />
@@ -33,7 +33,7 @@ const Home = () => {
             <Typography variant="body1" sx={{textAlign:'center', pb:1, }}>Welcome, {user.firstName}</Typography>
             <Typography variant="h5" sx={{textAlign:'center', pb:1, fontWeight:'bold', }}>MOJCEO Dashboard</Typography>
             <Typography variant="body1" sx={{textAlign:'center', pb:3}}>Choose your category for accessing informations.</Typography>
-            <Grid container sx={{display:'flex', alignItems:'center'}} spacing={3}>
+            <Grid container sx={{display:'flex', alignItems:'center', px:3}} spacing={3}>
                 <Grid item xs={6}>
                     <Link to="/dailytracker" style={{textDecoration:'none'}}>
                         <Box sx={{display:'flex', justifyContent:'center', py:5, background:'#8a2be2', borderRadius:5}}>
@@ -49,9 +49,15 @@ const Home = () => {
                     </Link>
                 </Grid>
             </Grid>
-            <Box sx={{mt:4, textAlign:'center', }}>
-                <Button onClick={handleAdmin} variant="outlined">Admin</Button>
-            </Box>
+            {
+                user && user.authorization === 'employee' ? 
+                    (
+                        <Box sx={{mt:4, textAlign:'center', }}>
+                            <Button onClick={handleAdmin} variant="outlined">Admin</Button>
+                        </Box>
+                    )
+                : null
+            }
         </Box>
     )
 }

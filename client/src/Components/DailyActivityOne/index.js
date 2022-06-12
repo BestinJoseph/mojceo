@@ -31,8 +31,6 @@ const DailyActivityOne = () => {
         navigate('/dailytracker')
     }
 
-    console.log(data)
-
     return (
         <Box className={classes.dailyactivityone}>
             <Box className={classNames('nav_header')}>
